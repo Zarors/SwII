@@ -6,5 +6,10 @@
     "dependencies": {
         "express": "3.x.x"
     },
+    ,
+  "main": "web.js",
+  "scripts": {
+    "start": "node web.js"
+  },
     "license": "ayacalla"
 }
