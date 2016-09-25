@@ -5,7 +5,7 @@ var app= express.createServer(express.logger());
 var path = require('path');
 
 app.get('/',function(req,res){
-  res.sendFile(path.join(__MKAPP+'/index.html'));
+  res.sendFile(path.join('/index.html'));
   //__dirname : It will resolve to your project folder.
 });
 
