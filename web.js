@@ -11,9 +11,9 @@ fs.readfile/('./home.html', function(err,html){
     
    // response.send('Hola mun3');
    // response.open('index.html');
-    response.writeHeader(200, {"Content-Type": "text/html"});  
-    response.write(html);  
-    response.end();  
+    response.sendHeader(200, {"Content-Type": "text/html"});  
+    response.send(html);  
+    //response.end();  
 });
 }  );
 
