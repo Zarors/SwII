@@ -5,7 +5,7 @@ var app= express.createServer(express.logger());
 app.get('/', function (request, response) {
     
     //response.send('Hola mun3');
- window.location = ("index.html"); 
+ location.href = "index.html"; 
     
 });
 
