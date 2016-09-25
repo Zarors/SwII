@@ -1,11 +1,10 @@
 {
     "name": "mk.js-server",
     "version": "0.0.1",
-    "author": "Minko Gechev @mgechev",
+    "author": "Zarito",
     "description": "Node.js server for mk.js",
     "dependencies": {
-        "express": "3.x.x",
-        "socket.io": "0.9.x"
+        "express": "3.x.x"
     },
     "license": "ayacalla"
 }
