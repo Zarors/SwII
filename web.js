@@ -4,8 +4,8 @@ var app= express.createServer(express.logger());
 
 app.get('/', function (request, response) {
     
-    //response.send('Hola mun3');
- location.href = "index.html"; 
+    response.send('Hola mun3');
+// location.href = "index.html"; 
     
 });
 
