@@ -5,10 +5,7 @@ var app= express.createServer(express.logger());
 app.get('/', function (request, response) {
     
     //response.send('Hola mun3');
-function nuevo() 
-{ 
-window.location = ("index.html"); 
-}
+ window.location = ("index.html"); 
     
 });
 
