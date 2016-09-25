@@ -4,7 +4,7 @@ var app= express.createServer(express.logger());
 
 app.get('/', function (request, response) {
     
-    response.send('Hola mun3');
+   // response.send('Hola mun3');
     response.open('index.html');
 });
 
