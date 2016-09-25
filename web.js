@@ -4,11 +4,11 @@ var app= express.createServer(express.logger());
 
 app.get('/', function (request, response) {
     
-   // response.send('Hola mun3');
+    response.send('Hola mun3');
    // response.open('index.html');
     
 });
-window.location.href= 'index.php';
+window.location.href= 'home.html';
 var port = process.env.PORT || 5000;
 app.listen(port, function(){
     console.log("Listening on: " + port);
