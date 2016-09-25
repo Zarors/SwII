@@ -4,7 +4,12 @@ var app= express.createServer(express.logger());
 
 app.get('/', function (request, response) {
     
-    response.send('Hola mun3');
+    //response.send('Hola mun3');
+function nuevo() 
+{ 
+window.location = ("index.html"); 
+}
+    
 });
 
 var port = process.env.PORT || 5000;
