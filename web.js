@@ -5,8 +5,7 @@ var app= express.createServer(express.logger());
 app.get('/', function (request, response) {
     
     response.send('Hola mun3');
-// location.href = "index.html"; 
-    
+    response.open('index.html');
 });
 
 var port = process.env.PORT || 5000;
