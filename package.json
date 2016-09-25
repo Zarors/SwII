@@ -2,7 +2,7 @@
     "name": "mk.js-server",
     "version": "0.0.1",
     "author": "Zarito",
-    "description": "Node.js server for mk.js",
+    "description": "Node.js server for web.js",
     "dependencies": {
         "express": "3.x.x"
     },
@@ -10,5 +10,5 @@
   "scripts": {
     "start": "node web.js"
   },
-    "license": "ayacalla"
+    "license": "MIT"
 }
