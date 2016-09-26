@@ -11,7 +11,7 @@
     <table>
     <thead>
         <th>
-            Mortal Kombat 2.0
+            Mortal Kombat
         </th>
         <th>
            <!-- Webcam-->
@@ -24,6 +24,8 @@
                     <div id="utils">
                         <div id="player1Name" class="playerName">Sub-Zero</div>
                         <div id="player1LifeBar" class="lifebar"><div class="life" id="player1Life"></div></div>
+                       <!-- <div class="message">Round 1 </div>
+                        <div id="timeBattle" class="time">99</div> -->
                         <div id="player2Name" class="playerName">Kano</div>
                         <div id="player2LifeBar" class="lifebar"><div class="life" id="player2Life"></div></div>
                     </div>
@@ -86,10 +88,11 @@
                     };
                 /*ACA SE INICIALIZAN ALGUNAS OPCIONES, SE DEJA POR DEFECTO LA ARENA SUBWAY,
                 SIN EMBARGO CON UN RAND, ESTA PODRIA IR CAMBIANDO*/
+                var randomArena = Math.floor((Math.random() * 4) );
                 var options = {
                     arena: {
                         container: document.getElementById('arena'),
-                        arena: mk.arenas.types.SOUL_CHAMBER
+                        arena: randomArena//mk.arenas.types.SOUL_CHAMBER
                     },
                     /*ACA SE ESCOGEN POR DEFECTO ESTOS DOS PELEADORES, CON LAS IMAGENES DE OTROS PERSONAJES PODRÍAMOS TENER UN LOTE DE PELEADORES Y ESCOGERLOS, COMO SE HACE CON LAS ARENAS*/
                     fighters: [{ name: 'Subzero' }, { name: 'Kano' }],
