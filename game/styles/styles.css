@@ -1,8 +1,15 @@
+@font-face {
+  font-family: "fuentemk4";
+  src: url("../styles/Fuentemk4.ttf") format("truetype");
+}
 table {
     margin: auto;
 }
 td {
     padding: 10px;
+    position:absolute;
+    right: 380px;
+    top: 110px;
 }
 th {
     font-size: 19px;
@@ -16,6 +23,27 @@ h1 {
 canvas {
     border: 3px solid white;
     border-radius: 5px;
+}
+/*.TituloMortal {
+   background-image: url("../images/logo.png");
+    width: 158px;
+    height: 59px;
+    left: 20px;
+    top: 30;
+    background-position: center;
+}*/
+#titulomortal{
+    width: 350px;
+    height: px;
+    position:absolute;
+    left: 500px;
+    display: block;
+}
+#fight{
+    position: absolute;
+    display: none;
+    top: 160px;
+    left: 230px;
 }
 #movementjs-main-canvas {
     -webkit-transform: scale(-1, 1);
@@ -36,6 +64,7 @@ body, html {
     height: 400px;
     position: relative;
     border-radius: 10px;
+    /*display: none;*/
 }
 #arena {
     width: 100%;
@@ -52,38 +81,99 @@ body, html {
     top: 0px;
     left: 0px;
 }
+#Round1 {
+    width: 40%;
+    height: 10%;
+    position: absolute;
+    display: none;
+    top: 160px;
+    left: 230px;
+}
+#Round2 {
+    width: 40%;
+    height: 10%;
+    position: absolute;
+    display: inline;
+    top: 160px;
+    left: 230px;
+    display: none;
+}
+#Round3 {
+    width: 40%;
+    height: 10%;
+    position: absolute;
+    display: inline;
+    top: 160px;
+    left: 230px;
+    display: none;
+}
+#Winner {
+    width: 40%;
+    height: 10%;
+    position: absolute;
+    display: inline;
+    top: 160px;
+    left: 230px;
+    display: none;
+}
+#mensaje {
+    width: 100%;
+    height: 6%;
+    font-size: 27px;
+}
+.Round {
+    font-family: "fuentemk4";
+    font-size: 40px;
+    font-style: italic;
+    font-weight: bold;
+    position: center;
+    left: 320px;
+    top: 150px;
+}
+
 .lifebar {
-    width: 200px;
-    height: 15px;
+    width: 168px;
+    height: 16px;
     background-color: red;
     position: absolute;
+    background-image: url("../images/lifebar.gif");
 }
+/*.diseñovida{
+    background-image: url("../images/lifebar.gif");
+}*/
 #player1LifeBar {
     left: 20px;
     top: 30px;
-    border-bottom-right-radius: 15px;
+    /*border-bottom-right-radius: 15px;*/
 }
 #player1LifeBar .life
 {
-    border-bottom-right-radius: 15px;
+    /*border-bottom-right-radius: 15px;*/
+     position:absolute;
+    left:4px;
+    top:3px;
     float: left;
 }
+    
 #player2LifeBar {
     right: 20px;
     top: 30px;
-    border-bottom-left-radius: 15px;
+   /* border-bottom-left-radius: 15px;*/
 }
 #player2LifeBar .life
 {
-    border-bottom-left-radius: 15px;
-    float: right;
+    /*border-bottom-left-radius: 15px;*/
+    position:absolute;
+    left:4px;
+    top:3px;
+    float:right;
 }
 .playerName {
     color: white;
     font-weight: bold;
     font-style: italic;
-    font-family: Verdana;
-    font-size: 14px;
+    font-family: "Fuentemk4";
+    font-size: 20px;
     position: absolute;
 }
 #player1Name {
@@ -95,8 +185,8 @@ body, html {
     top: 10px;
 }
 .life {
-    width: 100%;
-    height: 100%;
+    width: 160px;
+    height: 10px;
     background-color: #3CD400;
 }
 #utils {
@@ -143,4 +233,40 @@ body, html {
     position: absolute;
     left: 220px;
     top: 150px;
+}
+
+
+
+/************Pequeños agregados***************/
+.Fighter{
+    width: 48px;
+    height: 59px;
+    background-color: red;
+}
+#FighterScorpion{
+    top: 35px;
+    left: 20px;
+    position: absolute;
+    background-image: url(../images/profiles/scorpion.gif);
+}
+#FighterKano{
+    top: 35px;
+    left: 79px;
+    position:absolute;
+    background-image: url(../images/profiles/kano.gif);
+}
+#FighterSubzero{
+    top: 35px;
+    left: 129px;
+    position: absolute;
+    background-image: url(../images/profiles/subzero.gif);
+}
+#menu {
+    width: 290px;
+    height: 500px;
+    position: relative;
+    border-radius: 10px;
+    left : 30px;
+    top: 100px;
+    display:block;
 }

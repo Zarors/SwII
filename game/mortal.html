@@ -4,44 +4,59 @@
     <title>mk.js</title>
     <script src="src/movement.js"></script>
     <script src="src/mk.js"></script>
-    <!--<script src="/socket.io/socket.io.js"></script>-->
+   <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script type="text/javascript" src="src/jquery-3.1.1.js"></script>
     <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
+    
     <table>
     <thead>
         <th>
-            Mortal Kombat
+            
         </th>
-        <th>
-           <!-- Webcam-->
-        </th>
+       
     </thead>
     <tbody>
+        <img id="titulomortal" src= "../game/images/logo.jpg"/>
         <tr>
             <td>
                 <div id="parent">
+                    
                     <div id="utils">
-                        <div id="player1Name" class="playerName">Sub-Zero</div>
+                        <div id="player1Name" class="playerName"></div>
                         <div id="player1LifeBar" class="lifebar"><div class="life" id="player1Life"></div></div>
-                       <!-- <div class="message">Round 1 </div>
-                        <div id="timeBattle" class="time">99</div> -->
-                        <div id="player2Name" class="playerName">Kano</div>
+                        <!--<div id="designlifebar1" class="designlifebar"><div class="life" id="player1Life"></div></div>-->
+                       <!-- <div id="diseñovida" class="diseñovida"></div>-->
+                        <div id="Round1" class="Round" >Round 1</div>
+                        <div id="Round2" class="Round" >Round 2</div>
+                        <div id="Round3" class="Round" >Round 3</div>
+                        <div id="Winner" class="Round" > </div>
+                        <!--<div id="Round1" class="Round" >Round 2</div>-->
+                        <img id="fight" src= "../game/images/Fight.gif"/>
+                        <!--<div id="timeBattle" class="time">99</div>-->
+                        <div id="player2Name" class="playerName"></div>
                         <div id="player2LifeBar" class="lifebar"><div class="life" id="player2Life"></div></div>
+                       <!-- <div id="designlifebar2" class="designlifebar"><div class="life" id="player1Life"></div></div>-->
                     </div>
+                    
                     <div id="arena">
                     </div>
-                    <div id="loading">
+                    
+                    <!--<div id="loading">
                         <span class="loadingLabel">Loading...</span>
-                    </div>
+                    </div>-->
                 </div>
             </td>
             <td id="webcam-parent">
             </td>
+            
         </tr>
         <tr>
             <td colspan="2">
-            <!--<h1>Instructions</h1>
+            
+            
+                <!--<h1>Instructions</h1>
                 <p>
                     <ul class="instructions-list">
                         <li>For playing with gesture recognition you need Google Chrome 22+ or Firefox 19+.</li>
@@ -60,10 +75,18 @@
                 </p> -->
             </td>
         </tr>
+        
     </tbody>
+        <div id="menu">
+            <div id="mensaje" class="Round"> Choose Your Fighter!</div>
+            <div id="FighterScorpion" class="Fighter"> </div>
+            <div id="FighterKano" class="Fighter"> </div>
+            <div id="FighterSubzero" class="Fighter"> </div>
+    </div>
     <div class="manual">
     </div>
-    <script>
+    <script type="text/javascript">
+        $(document).ready(function(){
         (function () {
 
             function $(id) {
@@ -79,47 +102,201 @@
                     window.location.reload();
                 }
             };
-
-            (function () {
+            
+        var peleador;
+        jQuery('#FighterScorpion').click(function(){
+            peleador='Scorpion';
+            //jQuery('#player1Name').text("Scorpion");
+            Wea();
+            
+        });
+        jQuery('#FighterKano').click(function(){
+            peleador='Kano';
+            //jQuery('#player1Name').text("Kano");
+            Wea();
+            
+        });
+        jQuery('#FighterSubzero').click(function(){
+            peleador='Subzero';
+            //jQuery('#player1Name').text("Subzero");
+            Wea();
+            
+        });
+           
+            
+        var text= " <div id='utils'> <div id='player1Name' class='playerName'></div> <div id='player1LifeBar' class='lifebar'><div class='life' id='player1Life'></div></div> <!--<div id='designlifebar1' class='designlifebar'><div class='life' id='player1Life'></div></div>--> <!-- <div id='diseñovida' class='diseñovida'></div>--> <div id='Round1' class='Round' >Round 1</div> <div id='Round2' class='Round' >Round 2</div> <!--<div id='Round1' class='Round' >Round 2</div>--> <div id='Round3' class='Round' >Round 3</div> <div id='Winner' class='Round' > </div> <img id='fight' src= '../game/images/Fight.gif'/> <!--<div id='timeBattle' class='time'>99</div>--> <div id='player2Name' class='playerName'></div> <div id='player2LifeBar' class='lifebar'><div class='life' id='player2Life'></div></div> <!-- <div id='designlifebar2' class='designlifebar'><div class='life' id='player1Life'></div></div>--></div> <div id='arena'> </div>";
+        var snd1 = new Audio("../game/images/sound/round1.mp3"); // buffers automatically when created
+        var snd2 = new Audio("../game/images/sound/fight.mp3");
+        var snd3= new Audio("../game/images/sound/round2.mp3");
+        var snd4 = new Audio("../game/images/sound/round3.mp3");
+        var winner;
+        var player1Contador= 0, player2Contador=0;
+        //var personajePlayer1, personajePlayer2;
+       var numeroronda=0;
+        var randomfighter =
+        {
+            0: 'Scorpion',
+            1: 'Subzero',
+            2: 'Kano'
+        };
+           var randomArena = Math.floor((Math.random() * 7) ),
+                    random1 = Math.floor((Math.random() * 3) ); 
+            
+        /**********FUNCION DE START GAME*******************/
+            function Wea(){
+           setTimeout(function () {
                 var startGame = function () {
-                        $('loading').style.visibility = 'hidden';
+                        $('menu').style.display='none';
+                        //$('loading').style.visibility = 'hidden';
+                        $('parent').style.display= 'block';
                         $('arena').style.visibility = 'visible';
                         $('utils').style.visibility = 'visible';
                     };
                 /*ACA SE INICIALIZAN ALGUNAS OPCIONES, SE DEJA POR DEFECTO LA ARENA SUBWAY,
                 SIN EMBARGO CON UN RAND, ESTA PODRIA IR CAMBIANDO*/
-                var randomArena = Math.floor((Math.random() * 4) );
-                var options = {
+                
+                
+               var flag= randomfighter[random1];
+                    if(peleador==randomfighter[random1])
+                    {
+                        if(peleador!='Scorpion'){
+                            flag='Scorpion';
+                        }    
+                        else{
+                            if(peleador!='Kano'){
+                                flag='Kano';
+                            }
+                            else{
+                                flag='Subzero';
+                            }
+                        }            
+                    }
+               
+               var options = {
                     arena: {
                         container: document.getElementById('arena'),
                         arena: randomArena//mk.arenas.types.SOUL_CHAMBER
                     },
                     /*ACA SE ESCOGEN POR DEFECTO ESTOS DOS PELEADORES, CON LAS IMAGENES DE OTROS PERSONAJES PODRÍAMOS TENER UN LOTE DE PELEADORES Y ESCOGERLOS, COMO SE HACE CON LAS ARENAS*/
-                    fighters: [{ name: 'Subzero' }, { name: 'Kano' }],
+                    
+                    
+                    fighters: [{ name: peleador }, { name: flag }],
                     callbacks: {
                         attack: function (f, o, l) {
-                            if (o.getName() === 'kano') {
+                            if (o.getName() === flag.toLowerCase() ) {
                                 setLife($('player2Life'), o.getLife());
                             } else {
                                 setLife($('player1Life'), o.getLife());
                             }
+                        if(o._life==0){
+                                numeroronda ++;
+                                if(o.getName()==peleador.toLowerCase()){
+                                    jQuery('#Winner').text(flag+" wins");
+                                    winner= new Audio("../game/images/sound/"+flag.toLowerCase()+".mp3");
+                                    winner.play();
+                                    player2Contador++;
+                                }
+                                if(o.getName()==flag.toLowerCase()){
+                                    jQuery('#Winner').text(peleador+" wins"); 
+                                    winner= new Audio("../game/images/sound/"+peleador.toLowerCase()+".mp3");
+                                    winner.play();
+                                    player1Contador++;
+                                    }
+                                
+                                $('Winner').style.display= 'block';
+                                console.log(numeroronda);
+                                console.log(player1Contador);
+                                console.log(player2Contador);
+                                setTimeout(function(){
+                                //Si no se han peleado dos rounds
+                                $('Winner').style.display= 'none';
+                                
+                                if(numeroronda <= 2){
+                                    if(player1Contador==1 && player2Contador==1){
+                                        $('parent').innerHTML = text; //RESET DEL HTML
+                                        Wea(); //RECURSIVIDAD
+                                    }
+                                    if(numeroronda ==2 && player1Contador==2){
+                                        alert("Fin de la partida!");
+                                    }
+                                    if(numeroronda ==2 && player2Contador==2){
+                                        alert("Fin de la partida!");
+                                    }
+                                    if(player1Contador==0 && player2Contador==0){
+                                        $('parent').innerHTML = text;
+                                        Wea();
+                                    }
+                                    if(player1Contador==1 && player2Contador==0){
+                                        $('parent').innerHTML = text;
+                                        Wea();
+                                    }
+                                    if(player1Contador==0 && player2Contador==1){
+                                        $('parent').innerHTML = text;
+                                        Wea();
+                                    }
+                                    
+                                }
+                                if(numeroronda == 3){
+                                    alert("Fin de la partida!");
+                                }
+                            },5000)
                         }
 
                     },
-                    //isHost: ///^yes$/i.test(prompt('Are you going to be host?')),
+                    //is
+                   
+                   //Host: ///^yes$/i.test(prompt('Are you going to be host?')),
                     //gameName: prompt('Enter game name:'),
                     //gameType: 'network'
+                    }
                 };
-
-                function startNewGame() {
-                    mk.start(options).ready(function () {
-                        startGame();
-                    });
-                }
+                
+                
+        function startNewGame() {
+            mk.start(options).ready(function () {
+                startGame();
+            });
+            }
+               jQuery('#player1Name').text(peleador);
+               jQuery('#player2Name').text(flag); 
                 startNewGame();
-            }());
+                
+                if (numeroronda==0){
+                        jQuery('#Round1').css({"display": "block"});
+                        snd1.play();
+                    }
+                if(numeroronda==1){
+                        jQuery('#Round2').css({"display": "block"});
+                        snd3.play();
+                    }
+               if(numeroronda==2){
+                        jQuery('#Round3').css({"display": "block"});
+                        snd4.play();
+                    }
+                setTimeout(function() {
+                    snd2.play();
+                    if (numeroronda==0){
+                        jQuery('#Round1').css({"display": "none"});
+                    }
+                    if(numeroronda==1){
+                        jQuery('#Round2').css({"display": "none"});
+                    }
+                    if(numeroronda==2){
+                        jQuery('#Round3').css({"display": "none"});
+                    }
+                    jQuery('#fight').css({"display": "inline"});
+                },2000);
 
-        }());
+                setTimeout(function(){
+                    jQuery('#fight').css({"display": "none"});
+                },3000);
+        });
+      }
+    
+            
+    //Wea();        
+    }());
+});
     </script>
 </body>
 </html>

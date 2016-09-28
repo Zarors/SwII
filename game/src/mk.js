@@ -603,7 +603,10 @@
       TOWER: 0,
       THRONE_ROOM: 1,
       SUBWAY: 2,
-      SOUL_CHAMBER: 3
+      SOUL_CHAMBER: 3,
+      STREET: 4,
+      STREET2: 5,
+      CEMETERY: 6
     }
   };
 
@@ -1564,8 +1567,8 @@
 /********EN CASO DE AGREGAR OTRO LUCHADOR (LAS IMAGENES) DEBEMOS AGREGARLO EN ESTA LISTA Y LUEGO LLAMARLO DONDE SEA NECESARIO********/
   mk.fighters.list = {
     'subzero': true,
-    'kano': true/*,
-    'scorpion': true*/
+    'kano': true,
+    'scorpion': true
   };
 
   mk.fighters.orientations = {
